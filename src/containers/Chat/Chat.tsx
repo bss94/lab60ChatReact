@@ -3,6 +3,7 @@ import ChatList from '../../components/ChatList/ChatList';
 import {Col, Container, Row} from 'react-bootstrap';
 import {Message} from '../../types';
 import {getRequest} from '../../request';
+import ChatForm from '../../components/ChatForm/ChatForm';
 
 const Chat = () => {
 
@@ -46,7 +47,10 @@ const Chat = () => {
     <Container>
       <Row>
         <Col xs={3}/>
-        <Col xs={6}><ChatList messages={messages}/></Col>
+        <Col xs={6}>
+          <ChatList messages={messages}/>
+            <ChatForm/>
+        </Col>
         <Col xs={3}></Col>
       </Row>
     </Container>
