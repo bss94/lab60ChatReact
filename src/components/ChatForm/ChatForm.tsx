@@ -31,9 +31,8 @@ const ChatForm: React.FC = () => {
   };
 
   return (
-    <Form onSubmit={onFormSubmit}>
-      <Form.Group className="mb-3" controlId="name">
-        <Form.Label>Name</Form.Label>
+    <Form onSubmit={onFormSubmit} className="border-top border-dark p-2">
+      <Form.Group className="mt-5 mb-3" controlId="name">
         <Form.Control
           type="text"
           placeholder="Enter name"
@@ -43,7 +42,6 @@ const ChatForm: React.FC = () => {
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="message">
-        <Form.Label>Message</Form.Label>
         <Form.Control
           type="text"
           placeholder="Message"
