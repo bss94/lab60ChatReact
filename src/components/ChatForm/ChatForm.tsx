@@ -1,6 +1,9 @@
 import React from 'react';
 
-const ChatForm = () => {
+interface Props{
+
+}
+const ChatForm:React.FC<Props> = () => {
   return (
     <div>
       
