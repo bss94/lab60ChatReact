@@ -10,9 +10,6 @@ const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
 
 
-
-
-
   useEffect(() => {
     const initialState = async () => {
       const arr = await getRequest('http://146.185.154.90:8000/messages', 'GET');
@@ -23,12 +20,12 @@ const Chat = () => {
   }, []);
 
   useEffect(() => {
-    const interval= setInterval(async () => {
+    const interval = setInterval(async () => {
       const copyMessages = [...messages];
       const lastItem = copyMessages.pop();
-      if(lastItem!==undefined){
+      if (lastItem !== undefined) {
         const lastMessageTime: string = lastItem.datetime;
-        const newMessages = await getRequest(`http://146.185.154.90:8000/messages?datetime=`+lastMessageTime, 'GET');
+        const newMessages = await getRequest(`http://146.185.154.90:8000/messages?datetime=${lastMessageTime}` , 'GET');
         if (newMessages.length > 0) {
           console.log('find');
           setMessages(prevState => {
@@ -41,15 +38,13 @@ const Chat = () => {
   }, [messages]);
 
 
-
-
   return (
     <Container>
       <Row>
         <Col xs={3}/>
         <Col xs={6}>
           <ChatList messages={messages}/>
-            <ChatForm/>
+          <ChatForm/>
         </Col>
         <Col xs={3}></Col>
       </Row>

@@ -1,12 +1,13 @@
 import React from 'react';
 import {Card} from 'react-bootstrap';
 
-interface Props{
- message:string;
- author:string;
- date:string
+interface Props {
+  message: string;
+  author: string;
+  date: string;
 }
-const ChatItem:React.FC<Props> = ({author,message,date}) => {
+
+const ChatItem: React.FC<Props> = ({author, message, date}) => {
   const dateFormat = (date: string): string => {
     const d: Date = new Date(date);
     return [
@@ -19,7 +20,7 @@ const ChatItem:React.FC<Props> = ({author,message,date}) => {
   };
   return (
     <Card>
-      <Card.Header className="d-flex justify-content-between" >
+      <Card.Header className="d-flex justify-content-between">
         <strong className="text-uppercase text-black-50">{author}</strong>
         <span>{dateFormat(date)}</span>
       </Card.Header>
